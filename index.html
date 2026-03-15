@@ -9,895 +9,673 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ocean-deep: #0c4a6e;
-    --ocean: #0369a1;
-    --ocean-light: #38bdf8;
-    --sky: #e0f2fe;
-    --sky-soft: #f0f9ff;
-    --coral: #f43f5e;
-    --coral-light: #fda4af;
-    --coral-bg: #fff1f2;
-    --sand: #fef3c7;
-    --sand-dark: #d97706;
-    --white: #ffffff;
-    --gray-50: #f8fafc;
-    --gray-100: #f1f5f9;
-    --gray-200: #e2e8f0;
-    --gray-500: #64748b;
-    --gray-700: #334155;
-    --gray-800: #1e293b;
-    --gray-900: #0f172a;
-    --green: #059669;
-    --green-light: #d1fae5;
-    --purple: #7c3aed;
-    --purple-light: #ede9fe;
-    --teal: #0d9488;
-    --teal-light: #ccfbf1;
-    --amber: #d97706;
-    --amber-light: #fef3c7;
-    --rose: #e11d48;
-    --rose-light: #ffe4e6;
+    --ocean-deep: #0c4a6e; --ocean: #0369a1; --ocean-light: #38bdf8;
+    --sky: #e0f2fe; --sky-soft: #f0f9ff;
+    --coral: #f43f5e; --coral-light: #fda4af; --coral-bg: #fff1f2;
+    --sand: #fef3c7; --sand-dark: #d97706;
+    --white: #ffffff; --gray-50: #f8fafc; --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0; --gray-500: #64748b; --gray-700: #334155;
+    --gray-800: #1e293b; --gray-900: #0f172a;
+    --green: #059669; --green-light: #d1fae5;
+    --purple: #7c3aed; --purple-light: #ede9fe;
+    --teal: #0d9488; --teal-light: #ccfbf1;
+    --amber: #d97706; --amber-light: #fef3c7;
     --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
     --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
     --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
-    --radius: 16px;
-    --radius-sm: 10px;
+    --radius: 16px; --radius-sm: 10px;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    color: var(--gray-800);
-    background: var(--gray-50);
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-  }
+  body { font-family: 'Inter', -apple-system, sans-serif; color: var(--gray-800); background: var(--gray-50); line-height: 1.7; -webkit-font-smoothing: antialiased; }
 
-  /* HERO */
-  .hero {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: linear-gradient(135deg, #0c4a6e 0%, #0369a1 30%, #38bdf8 60%, #7dd3fc 100%);
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 40%;
-    background: linear-gradient(to top, rgba(12,74,110,0.4), transparent);
-  }
-  .hero-waves {
-    position: absolute;
-    bottom: -2px; left: 0;
-    width: 100%; height: 80px;
-  }
+  .hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(135deg, #0c4a6e 0%, #0369a1 30%, #38bdf8 60%, #7dd3fc 100%); overflow: hidden; }
+  .hero::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 40%; background: linear-gradient(to top, rgba(12,74,110,0.4), transparent); }
+  .hero-waves { position: absolute; bottom: -2px; left: 0; width: 100%; height: 80px; }
   .hero-waves svg { display: block; width: 100%; height: 100%; }
-  .hero-content {
-    position: relative; z-index: 2;
-    padding: 2rem; max-width: 700px;
-  }
-  .hero-emoji {
-    font-size: 4rem; margin-bottom: 1rem;
-    animation: float 3s ease-in-out infinite;
-  }
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
-  .hero h1 {
-    font-size: clamp(2.2rem, 6vw, 3.8rem);
-    font-weight: 800; color: var(--white);
-    letter-spacing: -0.02em; line-height: 1.2;
-    margin-bottom: 0.5rem;
-    text-shadow: 0 2px 20px rgba(0,0,0,0.2);
-  }
-  .hero h1 .sub {
-    display: block; font-size: 0.45em; font-weight: 400;
-    letter-spacing: 0.15em; text-transform: uppercase;
-    opacity: 0.85; margin-top: 0.3rem;
-  }
-  .hero-overview {
-    color: rgba(255,255,255,0.9);
-    font-size: 1.05rem; margin-top: 1.5rem; line-height: 1.8;
-  }
-  .hero-stats {
-    display: flex; justify-content: center;
-    gap: 1.5rem; margin-top: 2rem; flex-wrap: wrap;
-  }
-  .hero-stat {
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.25);
-    border-radius: var(--radius-sm);
-    padding: 0.7rem 1rem; color: white; min-width: 80px;
-  }
-  .hero-stat .num { font-size: 1.5rem; font-weight: 700; }
-  .hero-stat .label { font-size: 0.7rem; opacity: 0.85; text-transform: uppercase; letter-spacing: 0.05em; }
-  .scroll-hint {
-    position: absolute; bottom: 100px; left: 50%;
-    transform: translateX(-50%); z-index: 2;
-    color: rgba(255,255,255,0.7); font-size: 0.8rem;
-    animation: bounce 2s infinite;
-    cursor: pointer; text-decoration: none;
-  }
+  .hero-content { position: relative; z-index: 2; padding: 2rem; max-width: 700px; }
+  .hero-emoji { font-size: 4rem; margin-bottom: 1rem; animation: float 3s ease-in-out infinite; }
+  @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  .hero h1 { font-size: clamp(2.2rem, 6vw, 3.8rem); font-weight: 800; color: var(--white); letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 0.5rem; text-shadow: 0 2px 20px rgba(0,0,0,0.2); }
+  .hero h1 .sub { display: block; font-size: 0.45em; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.85; margin-top: 0.3rem; }
+  .hero-overview { color: rgba(255,255,255,0.9); font-size: 1.05rem; margin-top: 1.5rem; line-height: 1.8; }
+  .hero-stats { display: flex; justify-content: center; gap: 1.2rem; margin-top: 2rem; flex-wrap: wrap; }
+  .hero-stat { background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.25); border-radius: var(--radius-sm); padding: 0.7rem 1rem; color: white; min-width: 75px; }
+  .hero-stat .num { font-size: 1.4rem; font-weight: 700; }
+  .hero-stat .label { font-size: 0.65rem; opacity: 0.85; text-transform: uppercase; letter-spacing: 0.05em; }
+  .scroll-hint { position: absolute; bottom: 100px; left: 50%; transform: translateX(-50%); z-index: 2; color: rgba(255,255,255,0.7); font-size: 0.8rem; animation: bounce 2s infinite; cursor: pointer; text-decoration: none; }
   .scroll-hint span { display: block; font-size: 1.5rem; margin-top: 0.3rem; }
-  @keyframes bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(8px); }
-  }
+  @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
 
-  /* NAV */
-  .nav {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--gray-200);
-    overflow-x: auto; -webkit-overflow-scrolling: touch;
-  }
-  .nav-inner {
-    display: flex; justify-content: center; gap: 0;
-    max-width: 900px; margin: 0 auto; min-width: max-content;
-  }
-  .nav a {
-    display: block; padding: 0.8rem 0.9rem;
-    text-decoration: none; color: var(--gray-500);
-    font-size: 0.78rem; font-weight: 500;
-    white-space: nowrap;
-    border-bottom: 2px solid transparent;
-    transition: all 0.2s;
-  }
+  .nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--gray-200); overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .nav-inner { display: flex; justify-content: center; gap: 0; max-width: 900px; margin: 0 auto; min-width: max-content; }
+  .nav a { display: block; padding: 0.8rem 0.85rem; text-decoration: none; color: var(--gray-500); font-size: 0.75rem; font-weight: 500; white-space: nowrap; border-bottom: 2px solid transparent; transition: all 0.2s; }
   .nav a:hover { color: var(--ocean); border-bottom-color: var(--ocean); }
 
-  /* MAIN */
   .main { max-width: 900px; margin: 0 auto; padding: 0 1.2rem; }
-
-  /* DAY SECTION */
   .day-section { padding: 2.5rem 0; }
-  .day-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.8rem; }
-  .day-badge {
-    flex-shrink: 0; width: 52px; height: 52px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 800; font-size: 0.75rem; color: white; text-transform: uppercase;
-    line-height: 1.1; text-align: center;
-  }
+  .day-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.8rem; }
+  .day-badge { flex-shrink: 0; width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.7rem; color: white; text-transform: uppercase; line-height: 1.1; text-align: center; }
   .day-1 .day-badge { background: linear-gradient(135deg, var(--ocean), var(--ocean-light)); }
   .day-2 .day-badge { background: linear-gradient(135deg, var(--teal), #2dd4bf); }
   .day-3 .day-badge { background: linear-gradient(135deg, #a78bfa, var(--purple)); }
   .day-4 .day-badge { background: linear-gradient(135deg, var(--coral), #fb923c); }
   .day-5 .day-badge { background: linear-gradient(135deg, var(--amber), #f59e0b); }
   .day-6 .day-badge { background: linear-gradient(135deg, var(--gray-500), var(--gray-700)); }
-  .day-title h2 { font-size: 1.5rem; font-weight: 700; color: var(--gray-900); line-height: 1.3; }
-  .day-title .day-subtitle { font-size: 0.85rem; color: var(--gray-500); margin-top: 0.1rem; }
+  .day-title h2 { font-size: 1.4rem; font-weight: 700; color: var(--gray-900); line-height: 1.3; }
+  .day-title .day-subtitle { font-size: 0.82rem; color: var(--gray-500); margin-top: 0.1rem; }
 
-  /* REST DAY */
-  .rest-card {
-    background: linear-gradient(135deg, #fdf2f8, #fce7f3);
-    border: 2px dashed #f9a8d4;
-    border-radius: var(--radius); padding: 2rem; text-align: center;
-    margin-bottom: 1.5rem;
+  /* Route overview per day */
+  .day-route {
+    background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius);
+    padding: 1.2rem 1.4rem; margin-bottom: 1.5rem; box-shadow: var(--shadow-sm);
   }
+  .day-route-title { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gray-500); margin-bottom: 0.6rem; }
+  .day-route-path { font-size: 0.9rem; color: var(--gray-700); line-height: 2; margin-bottom: 0.8rem; }
+  .day-route-path .r-arrow { color: var(--ocean-light); font-weight: 700; margin: 0 0.3rem; }
+  .day-route-path .r-time { font-size: 0.75rem; color: var(--gray-500); font-weight: 500; }
+  .day-route-summary { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .day-route-pill {
+    display: inline-flex; align-items: center; gap: 0.3rem;
+    padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;
+  }
+  .pill-car { background: var(--sky); color: var(--ocean); }
+  .pill-hike { background: var(--green-light); color: var(--green); }
+  .pill-relax { background: #fdf2f8; color: #db2777; }
+
+  /* Rest day */
+  .rest-card { background: linear-gradient(135deg, #fdf2f8, #fce7f3); border: 2px dashed #f9a8d4; border-radius: var(--radius); padding: 2rem; text-align: center; margin-bottom: 1.5rem; }
   .rest-card .rest-emoji { font-size: 3rem; margin-bottom: 0.8rem; }
   .rest-card h3 { font-size: 1.3rem; color: var(--gray-900); margin-bottom: 0.5rem; }
   .rest-card p { color: var(--gray-700); font-size: 0.95rem; line-height: 1.7; }
 
-  /* DRIVE TIME BANNER */
-  .drive-banner {
-    background: linear-gradient(90deg, var(--gray-100), var(--sky-soft));
-    border: 1px solid var(--gray-200);
-    border-radius: var(--radius-sm);
-    padding: 0.8rem 1.2rem;
-    margin-bottom: 1.5rem;
-    display: flex; align-items: center; gap: 0.6rem;
-    font-size: 0.9rem; color: var(--gray-700);
-  }
-  .drive-banner .drive-icon { font-size: 1.3rem; }
-  .drive-banner strong { color: var(--gray-900); }
-
-  /* SPOT CARD */
-  .spot-card {
-    background: var(--white); border-radius: var(--radius);
-    box-shadow: var(--shadow-md); padding: 1.6rem;
-    margin-bottom: 1.2rem; border: 1px solid var(--gray-200);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
+  /* Spot card */
+  .spot-card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow-md); padding: 1.5rem; margin-bottom: 1.2rem; border: 1px solid var(--gray-200); transition: transform 0.2s, box-shadow 0.2s; }
   .spot-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
-  .spot-header { display: flex; align-items: flex-start; gap: 0.8rem; margin-bottom: 0.8rem; }
-  .spot-number {
-    flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%;
-    background: var(--ocean); color: white;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 700; font-size: 0.8rem;
-  }
+  .spot-header { display: flex; align-items: flex-start; gap: 0.7rem; margin-bottom: 0.7rem; }
+  .spot-number { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--ocean); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.78rem; }
   .day-2 .spot-number { background: var(--teal); }
   .day-3 .spot-number { background: var(--purple); }
   .day-4 .spot-number { background: var(--coral); }
   .day-5 .spot-number { background: var(--amber); }
   .day-6 .spot-number { background: var(--gray-500); }
   .spot-name { flex: 1; }
-  .spot-name h3 { font-size: 1.15rem; font-weight: 700; color: var(--gray-900); line-height: 1.3; }
-  .spot-name .spot-location { font-size: 0.82rem; color: var(--gray-500); margin-top: 0.1rem; }
-  .spot-optional {
-    display: inline-block; background: var(--sand); color: var(--sand-dark);
-    font-size: 0.65rem; font-weight: 600; padding: 0.2rem 0.5rem;
-    border-radius: 20px; text-transform: uppercase; letter-spacing: 0.05em;
-  }
-  .spot-desc { color: var(--gray-700); font-size: 0.9rem; margin-bottom: 1rem; line-height: 1.7; }
+  .spot-name h3 { font-size: 1.1rem; font-weight: 700; color: var(--gray-900); line-height: 1.3; }
+  .spot-name .spot-location { font-size: 0.8rem; color: var(--gray-500); margin-top: 0.1rem; }
+  .spot-optional { display: inline-block; background: var(--sand); color: var(--sand-dark); font-size: 0.62rem; font-weight: 600; padding: 0.15rem 0.45rem; border-radius: 20px; text-transform: uppercase; }
+  .spot-desc { color: var(--gray-700); font-size: 0.88rem; margin-bottom: 0.8rem; line-height: 1.7; }
 
-  /* Pills */
-  .spot-info { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.8rem; }
-  .pill {
-    display: inline-flex; align-items: center; gap: 0.3rem;
-    padding: 0.3rem 0.65rem; border-radius: 20px;
-    font-size: 0.75rem; font-weight: 500;
-  }
+  .spot-info { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.7rem; }
+  .pill { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.25rem 0.55rem; border-radius: 20px; font-size: 0.72rem; font-weight: 500; }
   .pill-time { background: var(--sky); color: var(--ocean); }
   .pill-distance { background: var(--green-light); color: var(--green); }
   .pill-difficulty { background: var(--sand); color: var(--sand-dark); }
   .pill-elevation { background: var(--coral-bg); color: var(--coral); }
   .pill-drive { background: var(--gray-100); color: var(--gray-700); }
 
-  /* Route */
-  .route-box {
-    background: var(--sky-soft); border: 1px solid #bae6fd;
-    border-radius: var(--radius-sm); padding: 0.8rem 1rem; margin-bottom: 0.8rem;
-  }
-  .route-box .route-label {
-    font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
-    letter-spacing: 0.08em; color: var(--gray-500); margin-bottom: 0.3rem;
-  }
-  .route-box .route-steps { font-size: 0.85rem; color: var(--gray-700); line-height: 1.8; }
+  .route-box { background: var(--sky-soft); border: 1px solid #bae6fd; border-radius: var(--radius-sm); padding: 0.7rem 0.9rem; margin-bottom: 0.7rem; }
+  .route-box .route-label { font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gray-500); margin-bottom: 0.3rem; }
+  .route-box .route-steps { font-size: 0.82rem; color: var(--gray-700); line-height: 1.8; }
   .route-arrow { color: var(--ocean-light); font-weight: 600; margin: 0 0.2rem; }
 
-  /* Parking */
-  .parking-box {
-    display: flex; align-items: flex-start; gap: 0.5rem;
-    background: var(--gray-50); border: 1px solid var(--gray-200);
-    border-radius: var(--radius-sm); padding: 0.7rem 0.9rem; margin-bottom: 0.8rem;
-  }
-  .parking-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .parking-box { display: flex; align-items: flex-start; gap: 0.5rem; background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius-sm); padding: 0.6rem 0.8rem; margin-bottom: 0.7rem; }
+  .parking-icon { font-size: 1rem; flex-shrink: 0; margin-top: 0.1rem; }
   .parking-details { flex: 1; }
-  .parking-name { font-size: 0.85rem; font-weight: 600; color: var(--gray-800); }
-  .parking-note { font-size: 0.78rem; color: var(--gray-500); margin-top: 0.1rem; }
-  .parking-link {
-    display: inline-flex; align-items: center; gap: 0.3rem;
-    margin-top: 0.2rem; font-size: 0.78rem;
-    color: var(--ocean); text-decoration: none; font-weight: 500;
-  }
+  .parking-name { font-size: 0.82rem; font-weight: 600; color: var(--gray-800); }
+  .parking-note { font-size: 0.75rem; color: var(--gray-500); margin-top: 0.1rem; }
+  .parking-link { display: inline-flex; align-items: center; gap: 0.25rem; margin-top: 0.15rem; font-size: 0.75rem; color: var(--ocean); text-decoration: none; font-weight: 500; }
   .parking-link:hover { text-decoration: underline; }
 
-  /* Highlights */
-  .highlights { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.4rem; }
-  .highlight-tag {
-    display: inline-flex; align-items: center; gap: 0.2rem;
-    background: var(--white); border: 1px solid var(--gray-200);
-    padding: 0.25rem 0.6rem; border-radius: 20px;
-    font-size: 0.73rem; color: var(--gray-700);
-  }
+  .highlights { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.3rem; }
+  .highlight-tag { display: inline-flex; align-items: center; gap: 0.2rem; background: var(--white); border: 1px solid var(--gray-200); padding: 0.2rem 0.5rem; border-radius: 20px; font-size: 0.7rem; color: var(--gray-700); }
 
-  /* TIPS */
   .tips-section { padding: 2.5rem 0 3rem; }
-  .tips-header { text-align: center; margin-bottom: 1.8rem; }
-  .tips-header h2 { font-size: 1.5rem; font-weight: 700; color: var(--gray-900); }
-  .tips-header p { color: var(--gray-500); font-size: 0.9rem; margin-top: 0.3rem; }
-  .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.8rem; }
-  .tip-card {
-    background: var(--white); border-radius: var(--radius);
-    padding: 1.2rem; border: 1px solid var(--gray-200); box-shadow: var(--shadow-sm);
-  }
-  .tip-card .tip-icon { font-size: 1.6rem; margin-bottom: 0.4rem; }
-  .tip-card h4 { font-size: 0.95rem; font-weight: 600; color: var(--gray-900); margin-bottom: 0.2rem; }
-  .tip-card p { font-size: 0.82rem; color: var(--gray-500); line-height: 1.6; }
+  .tips-header { text-align: center; margin-bottom: 1.5rem; }
+  .tips-header h2 { font-size: 1.4rem; font-weight: 700; color: var(--gray-900); }
+  .tips-header p { color: var(--gray-500); font-size: 0.88rem; margin-top: 0.2rem; }
+  .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 0.7rem; }
+  .tip-card { background: var(--white); border-radius: var(--radius); padding: 1.1rem; border: 1px solid var(--gray-200); box-shadow: var(--shadow-sm); }
+  .tip-card .tip-icon { font-size: 1.5rem; margin-bottom: 0.3rem; }
+  .tip-card h4 { font-size: 0.9rem; font-weight: 600; color: var(--gray-900); margin-bottom: 0.2rem; }
+  .tip-card p { font-size: 0.8rem; color: var(--gray-500); line-height: 1.6; }
 
-  /* FOOTER */
-  .footer {
-    text-align: center; padding: 2rem 1rem;
-    background: var(--ocean-deep); color: rgba(255,255,255,0.6); font-size: 0.8rem;
-  }
-  .footer a { color: var(--ocean-light); text-decoration: none; }
-  .footer .footer-emoji { font-size: 1.5rem; margin-bottom: 0.5rem; }
-
+  .footer { text-align: center; padding: 1.5rem 1rem; background: var(--ocean-deep); color: rgba(255,255,255,0.6); font-size: 0.78rem; }
+  .footer .footer-emoji { font-size: 1.3rem; margin-bottom: 0.4rem; }
   .section-divider { border: none; height: 1px; background: var(--gray-200); margin: 0; }
 
-  /* RESPONSIVE */
   @media (max-width: 640px) {
-    .hero-stats { gap: 0.6rem; }
-    .hero-stat { min-width: 70px; padding: 0.5rem 0.7rem; }
-    .hero-stat .num { font-size: 1.2rem; }
-    .spot-card { padding: 1.2rem; }
-    .day-badge { width: 44px; height: 44px; font-size: 0.65rem; }
-    .day-title h2 { font-size: 1.2rem; }
-    .nav a { padding: 0.7rem 0.7rem; font-size: 0.72rem; }
+    .hero-stats { gap: 0.5rem; }
+    .hero-stat { min-width: 65px; padding: 0.5rem 0.6rem; }
+    .hero-stat .num { font-size: 1.1rem; }
+    .spot-card { padding: 1.1rem; }
+    .day-badge { width: 44px; height: 44px; font-size: 0.6rem; }
+    .day-title h2 { font-size: 1.15rem; }
+    .nav a { padding: 0.65rem 0.6rem; font-size: 0.68rem; }
     .tips-grid { grid-template-columns: 1fr; }
-    .pill { font-size: 0.7rem; padding: 0.25rem 0.5rem; }
-    .drive-banner { font-size: 0.82rem; }
+    .pill { font-size: 0.67rem; padding: 0.2rem 0.45rem; }
+    .day-route { padding: 1rem; }
+    .day-route-path { font-size: 0.82rem; }
+    .day-route-summary { gap: 0.5rem; }
   }
 </style>
 </head>
 <body>
 
-<!-- HERO -->
 <section class="hero" id="top">
   <div class="hero-content">
     <div class="hero-emoji">🚗 🏔️ 🌊</div>
-    <h1>
-      蔚蓝海岸度假之旅
-      <span class="sub">Côte d'Azur Vacation · Mar 16-21</span>
-    </h1>
-    <p class="hero-overview">
-      马赛 Marseille 为大本营 🏠<br>
-      每天自驾出发，探索地中海最美海岸线<br>
-      白色峡湾 → 中世纪村庄 → 红色火山岩 → 戛纳 ✨
-    </p>
+    <h1>蔚蓝海岸度假之旅<span class="sub">Côte d'Azur · Mar 16-21 · 马赛出发</span></h1>
+    <p class="hero-overview">每天从马赛出发，晚上回马赛 🏠<br>白色峡湾 → 中世纪村庄 → 红色火山岩 → 戛纳<br>三月淡季，停车不慌，节奏轻松 ✨</p>
     <div class="hero-stats">
       <div class="hero-stat"><div class="num">6</div><div class="label">天</div></div>
-      <div class="hero-stat"><div class="num">10+</div><div class="label">景点</div></div>
+      <div class="hero-stat"><div class="num">12</div><div class="label">景点</div></div>
       <div class="hero-stat"><div class="num">1</div><div class="label">休息日</div></div>
       <div class="hero-stat"><div class="num">🏠</div><div class="label">每晚回马赛</div></div>
     </div>
   </div>
   <a href="#day1" class="scroll-hint">向下滑动<span>↓</span></a>
-  <div class="hero-waves">
-    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-      <path d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,45 L1440,80 L0,80 Z" fill="#f8fafc"/>
-    </svg>
-  </div>
+  <div class="hero-waves"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,45 L1440,80 L0,80 Z" fill="#f8fafc"/></svg></div>
 </section>
 
-<!-- NAV -->
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="#day1">周一 峡湾</a>
-    <a href="#day2">周二 村庄</a>
-    <a href="#day3">周三 休息</a>
-    <a href="#day4">周四 红岩</a>
-    <a href="#day5">周五 戛纳</a>
-    <a href="#day6">周六 博物馆</a>
-    <a href="#tips">💡 贴士</a>
-  </div>
-</nav>
+<nav class="nav"><div class="nav-inner">
+  <a href="#day1">周一 峡湾</a>
+  <a href="#day2">周二 村庄</a>
+  <a href="#day3">周三 休息</a>
+  <a href="#day4">周四 红岩</a>
+  <a href="#day5">周五 戛纳</a>
+  <a href="#day6">周六 博物馆</a>
+  <a href="#tips">💡 贴士</a>
+</div></nav>
 
 <div class="main">
 
-  <!-- DAY 1: MONDAY -->
-  <section class="day-section day-1" id="day1">
-    <div class="day-header">
-      <div class="day-badge">周一<br>3/16</div>
-      <div class="day-title">
-        <h2>🏖️ Cassis 白色峡湾</h2>
-        <div class="day-subtitle">马赛周边 · 轻松开局</div>
+<!-- ========== DAY 1: MONDAY ========== -->
+<section class="day-section day-1" id="day1">
+  <div class="day-header">
+    <div class="day-badge">周一<br>3/16</div>
+    <div class="day-title">
+      <h2>🏖️ Cassis 白色峡湾</h2>
+      <div class="day-subtitle">马赛东南 · 最近的一天</div>
+    </div>
+  </div>
+
+  <div class="day-route">
+    <div class="day-route-title">🗺️ 今日路线</div>
+    <div class="day-route-path">
+      🏠 马赛 <span class="r-arrow">→</span> <span class="r-time">25min</span> <span class="r-arrow">→</span>
+      Cassis 峡湾徒步 + 小镇午餐 <span class="r-arrow">→</span> <span class="r-time">10min</span> <span class="r-arrow">→</span>
+      Route des Crêtes 悬崖公路 <span class="r-arrow">→</span> <span class="r-time">25min</span> <span class="r-arrow">→</span>
+      🏠 马赛
+    </div>
+    <div class="day-route-summary">
+      <span class="day-route-pill pill-car">🚗 开车总计 ~1h</span>
+      <span class="day-route-pill pill-hike">🥾 徒步总计 3-6h</span>
+      <span class="day-route-pill pill-relax">😌 最轻松的一天</span>
+    </div>
+  </div>
+
+  <div class="spot-card">
+    <div class="spot-header">
+      <div class="spot-number">1</div>
+      <div class="spot-name"><h3>⛰️ Calanques de Cassis</h3><div class="spot-location">卡西斯峡湾国家公园</div></div>
+    </div>
+    <p class="spot-desc">白色石灰岩悬崖直插碧绿海水，越走越震撼。三个峡湾由近到远自由选择，走累了随时折返 🤩</p>
+    <div class="spot-info">
+      <span class="pill pill-drive">🚗 马赛→这里 25min</span>
+      <span class="pill pill-time">🥾 2-4h</span>
+      <span class="pill pill-difficulty">🟢 自选难度</span>
+    </div>
+    <div class="route-box">
+      <div class="route-label">🥾 徒步路线</div>
+      <div class="route-steps">Port-Miou（15min）<span class="route-arrow">→</span> Port-Pin（+20min 🏖️）<span class="route-arrow">→</span> <strong>En-Vau</strong>（+90min 🌟最壮观）</div>
+    </div>
+    <div class="parking-box">
+      <span class="parking-icon">🅿️</span>
+      <div class="parking-details">
+        <div class="parking-name">Parking de la Presqu'île</div>
+        <div class="parking-note">Avenue Notre Dame, Cassis · 收费 · 三月淡季不用抢位</div>
+        <a class="parking-link" href="https://www.google.com/maps/search/?api=1&query=43.2141,5.5363" target="_blank">📍 导航 →</a>
       </div>
     </div>
-
-    <div class="drive-banner">
-      <span class="drive-icon">🚗</span>
-      <span>马赛 → Cassis <strong>单程 25 分钟</strong>（往返 50min）· 今天开车最少！</span>
+    <div class="highlights">
+      <span class="highlight-tag">🏔️ 白色悬崖</span>
+      <span class="highlight-tag">💎 碧绿海水</span>
+      <span class="highlight-tag">🏊 可游泳</span>
     </div>
-    <div class="drive-banner" style="background: linear-gradient(90deg, var(--green-light), #ecfdf5);">
-      <span class="drive-icon">🥾</span>
-      <span>今日徒步总计 <strong>约 3-6 小时</strong>（峡湾 2-4h + 悬崖公路走走 + Cassis 散步）</span>
-    </div>
+  </div>
 
-    <div class="spot-card">
-      <div class="spot-header">
-        <div class="spot-number">1</div>
-        <div class="spot-name">
-          <h3>⛰️ Calanques de Cassis</h3>
-          <div class="spot-location">卡西斯峡湾国家公园</div>
-        </div>
-      </div>
-      <p class="spot-desc">地中海最壮观的峡湾群！白色石灰岩悬崖直插碧绿海水。三个峡湾由近到远，越走越震撼。到 En-Vau 那一刻你会觉得值回所有脚程 🤩 走累了随时折返。</p>
-      <div class="spot-info">
-        <span class="pill pill-time">⏱️ 2-4小时</span>
-        <span class="pill pill-difficulty">🟢 自选难度</span>
-        <span class="pill pill-drive">🚗 25min</span>
-      </div>
-      <div class="route-box">
-        <div class="route-label">🥾 徒步路线（由近到远）</div>
-        <div class="route-steps">
-          Port-Miou（15min，港口峡湾）<span class="route-arrow">→</span>
-          Port-Pin（+20min，松树沙滩🏖️）<span class="route-arrow">→</span>
-          <strong>En-Vau</strong>（+90min，最壮观！🌟）
-        </div>
-      </div>
-      <div class="parking-box">
-        <span class="parking-icon">🅿️</span>
-        <div class="parking-details">
-          <div class="parking-name">Parking de la Presqu'île</div>
-          <div class="parking-note">Avenue Notre Dame, Cassis · 收费 · 建议9点前到</div>
-          <a class="parking-link" href="https://www.google.com/maps/search/?api=1&query=43.2141,5.5363" target="_blank">📍 Google Maps 导航 →</a>
-        </div>
-      </div>
-      <div class="highlights">
-        <span class="highlight-tag">🏔️ 白色悬崖</span>
-        <span class="highlight-tag">💎 碧绿海水</span>
-        <span class="highlight-tag">🏊 可以游泳</span>
-        <span class="highlight-tag">📸 绝佳拍照</span>
+  <div class="spot-card">
+    <div class="spot-header">
+      <div class="spot-number">2</div>
+      <div class="spot-name"><h3>🍷 Cassis 小镇午餐</h3><div class="spot-location">彩色渔港 · 白葡萄酒</div></div>
+      <span class="spot-optional">顺路</span>
+    </div>
+    <p class="spot-desc">徒步完回来正好在 Cassis 小镇吃午饭。彩色房子围着小渔港，点杯当地白葡萄酒或 rosé 🍷</p>
+    <div class="spot-info">
+      <span class="pill pill-time">🥾 1-2h 散步</span>
+      <span class="pill pill-difficulty">🟢 散步</span>
+    </div>
+  </div>
+
+  <div class="spot-card">
+    <div class="spot-header">
+      <div class="spot-number">3</div>
+      <div class="spot-name"><h3>🛤️ Route des Crêtes 悬崖公路</h3><div class="spot-location">Cassis → La Ciotat 方向，然后原路返回</div></div>
+    </div>
+    <p class="spot-desc">13km 悬崖顶公路，最高 380m 俯瞰地中海。4 个观景台随停随看。从 Cassis 出发走到头再原路折返，回马赛走高速 25min。</p>
+    <div class="spot-info">
+      <span class="pill pill-drive">🚗 Cassis→这里 10min</span>
+      <span class="pill pill-time">⏱️ 30-60min</span>
+      <span class="pill pill-distance">📏 13km</span>
+      <span class="pill pill-elevation">📐 380m</span>
+    </div>
+    <div class="parking-box">
+      <span class="parking-icon">🅿️</span>
+      <div class="parking-details">
+        <div class="parking-name">沿途 4 个观景台停车场</div>
+        <div class="parking-note">Falaises Soubeyranes 观景点最推荐</div>
+        <a class="parking-link" href="https://www.google.com/maps/search/?api=1&query=43.1980,5.5800" target="_blank">📍 导航 →</a>
       </div>
     </div>
+    <div class="highlights">
+      <span class="highlight-tag">🏔️ 欧洲最高海崖</span>
+      <span class="highlight-tag">🌅 俯瞰地中海</span>
+      <span class="highlight-tag">🚗 自驾风景线</span>
+    </div>
+  </div>
+</section>
 
-    <div class="spot-card">
-      <div class="spot-header">
-        <div class="spot-number">2</div>
-        <div class="spot-name">
-          <h3>🛤️ Route des Crêtes 悬崖公路</h3>
-          <div class="spot-location">La Ciotat ↔ Cassis · 欧洲最高海崖之一</div>
-        </div>
-      </div>
-      <p class="spot-desc">13公里的悬崖顶公路，最高380米俯瞰地中海。4个观景台都有停车场，开到哪停到哪。和 Calanques 同一天顺路走，回马赛路上经过。</p>
-      <div class="spot-info">
-        <span class="pill pill-time">⏱️ 30-60min</span>
-        <span class="pill pill-distance">📏 13km</span>
-        <span class="pill pill-elevation">📐 380m</span>
-        <span class="pill pill-difficulty">🟢 纯开车</span>
-      </div>
-      <div class="parking-box">
-        <span class="parking-icon">🅿️</span>
-        <div class="parking-details">
-          <div class="parking-name">沿途 4 个观景台停车场</div>
-          <div class="parking-note">Falaises Soubeyranes 观景点最推荐</div>
-          <a class="parking-link" href="https://www.google.com/maps/search/?api=1&query=43.1980,5.5800" target="_blank">📍 Route des Crêtes →</a>
-        </div>
-      </div>
-      <div class="highlights">
-        <span class="highlight-tag">🏔️ 欧洲最高海崖</span>
-        <span class="highlight-tag">🌅 俯瞰地中海</span>
-        <span class="highlight-tag">🚗 自驾风景线</span>
+<hr class="section-divider">
+
+<!-- ========== DAY 2: TUESDAY ========== -->
+<section class="day-section day-2" id="day2">
+  <div class="day-header">
+    <div class="day-badge">周二<br>3/17</div>
+    <div class="day-title">
+      <h2>🏰 中世纪村庄 + 品酒</h2>
+      <div class="day-subtitle">Le Castellet · Bandol · 马赛西南方向</div>
+    </div>
+  </div>
+
+  <div class="day-route">
+    <div class="day-route-title">🗺️ 今日路线</div>
+    <div class="day-route-path">
+      🏠 马赛 <span class="r-arrow">→</span> <span class="r-time">45min</span> <span class="r-arrow">→</span>
+      Le Castellet 古村 <span class="r-arrow">→</span> <span class="r-time">15min</span> <span class="r-arrow">→</span>
+      Bandol 海滨品酒 <span class="r-arrow">→</span> <span class="r-time">40min</span> <span class="r-arrow">→</span>
+      🏠 马赛
+    </div>
+    <div class="day-route-summary">
+      <span class="day-route-pill pill-car">🚗 开车总计 ~1h40</span>
+      <span class="day-route-pill pill-hike">🥾 徒步总计 3-5h</span>
+      <span class="day-route-pill pill-relax">🍷 品酒+散步</span>
+    </div>
+  </div>
+
+  <div class="spot-card">
+    <div class="spot-header">
+      <div class="spot-number">4</div>
+      <div class="spot-name"><h3>🏰 Le Castellet 中世纪村庄</h3><div class="spot-location">山顶古村 · 俯瞰葡萄园</div></div>
+    </div>
+    <p class="spot-desc">山顶中世纪古村，石头窄巷、手工艺品小店、城墙俯瞰连绵葡萄园和大海。普罗旺斯味道拉满 🏘️</p>
+    <div class="spot-info">
+      <span class="pill pill-drive">🚗 马赛→这里 45min</span>
+      <span class="pill pill-time">🥾 1-2h</span>
+      <span class="pill pill-difficulty">🟢 轻松</span>
+    </div>
+    <div class="parking-box">
+      <span class="parking-icon">🅿️</span>
+      <div class="parking-details">
+        <div class="parking-name">村口停车场（D26 路旁，免费）</div>
+        <a class="parking-link" href="https://www.google.com/maps/search/?api=1&query=43.2026,5.7814" target="_blank">📍 导航 →</a>
       </div>
     </div>
+    <div class="highlights">
+      <span class="highlight-tag">🏰 中世纪石巷</span>
+      <span class="highlight-tag">🍇 葡萄园全景</span>
+      <span class="highlight-tag">🎨 手工艺品</span>
+    </div>
+  </div>
 
-    <div class="spot-card">
-      <div class="spot-header">
-        <div class="spot-number">3</div>
-        <div class="spot-name">
-          <h3>🍷 Cassis 小镇漫步</h3>
-          <div class="spot-location">彩色渔港 · 普罗旺斯白葡萄酒</div>
-        </div>
-        <span class="spot-optional">顺路</span>
-      </div>
-      <p class="spot-desc">走完峡湾回来正好逛 Cassis 小镇。彩色房子围着小渔港，坐下来喝杯当地的白葡萄酒或 rosé，吃个午餐。这就是法南度假的正确打开方式 🍷</p>
-      <div class="spot-info">
-        <span class="pill pill-time">⏱️ 1-2小时</span>
-        <span class="pill pill-difficulty">🟢 散步</span>
-      </div>
-      <div class="highlights">
-        <span class="highlight-tag">🍷 Cassis白葡萄酒</span>
-        <span class="highlight-tag">🎨 彩色渔港</span>
-        <span class="highlight-tag">🍽️ 海鲜午餐</span>
+  <div class="spot-card">
+    <div class="spot-header">
+      <div class="spot-number">5</div>
+      <div class="spot-name"><h3>⛵ Bandol 海滨 + 品酒</h3><div class="spot-location">法南经典红酒/rosé 产区</div></div>
+    </div>
+    <p class="spot-desc">Le Castellet 下山就到。在海边散步、找家酒庄品 Bandol AOC。回马赛走高速 40 分钟，节奏很舒服 🌅</p>
+    <div class="spot-info">
+      <span class="pill pill-drive">🚗 Le Castellet→这里 15min</span>
+      <span class="pill pill-time">🥾 2-3h</span>
+      <span class="pill pill-difficulty">🟢 散步+品酒</span>
+    </div>
+    <div class="parking-box">
+      <span class="parking-icon">🅿️</span>
+      <div class="parking-details">
+        <div class="parking-name">Port de Bandol 附近停车场</div>
+        <a class="parking-link" href="https://www.google.com/maps/search/?api=1&query=43.1350,5.7530" target="_blank">📍 导航 →</a>
       </div>
     </div>
-  </section>
+    <div class="highlights">
+      <span class="highlight-tag">🍷 Bandol AOC</span>
+      <span class="highlight-tag">🌊 海滨漫步</span>
+      <span class="highlight-tag">☀️ 法南小镇</span>
+    </div>
+  </div>
 
-  <hr class="section-divider">
-
-  <!-- DAY 2: TUESDAY -->
-  <section class="day-section day-2" id="day2">
-    <div class="day-header">
-      <div class="day-badge">周二<br>3/17</div>
-      <div class="day-title">
-        <h2>🏰 中世纪村庄 + 小岛</h2>
-        <div class="day-subtitle">Le Castellet · Bandol · 或 Porquerolles 岛</div>
+  <div class="spot-card">
+    <div class="spot-header">
+      <div class="spot-number">6</div>
+      <div class="spot-name"><h3>🏝️ Île de Porquerolles</h3><div class="spot-location">无车小岛 · Hyères 渡轮 20min</div></div>
+      <span class="spot-optional">替代方案</span>
+    </div>
+    <p class="spot-desc">如果更想看自然：开车 1h 到 Hyères 的 La Tour Fondue 坐渡轮上岛。没有汽车，碧蓝海滩 + 松树林，租自行车环岛 🏝️ 选这个就替换上面两个。</p>
+    <div class="spot-info">
+      <span class="pill pill-drive">🚗 马赛→码头 1h + 🚢 20min</span>
+      <span class="pill pill-time">🥾 大半天</span>
+      <span class="pill pill-difficulty">🟢 轻松</span>
+    </div>
+    <div class="parking-box">
+      <span class="parking-icon">🅿️</span>
+      <div class="parking-details">
+        <div class="parking-name">La Tour Fondue 码头停车场 或 P+R Arromanches（免费）</div>
+        <a class="parking-link" href="https://www.google.com/maps/search/?api=1&query=43.0310,6.1560" target="_blank">📍 码头导航 →</a>
       </div>
     </div>
-
-    <div class="drive-banner">
-      <span class="drive-icon">🚗</span>
-      <span>马赛 → Le Castellet <strong>单程 45 分钟</strong> · 马赛 → Hyères 渡轮码头 <strong>单程 1 小时</strong></span>
+    <div class="highlights">
+      <span class="highlight-tag">🏝️ 无车天堂</span>
+      <span class="highlight-tag">🚲 环岛骑行</span>
+      <span class="highlight-tag">🏖️ 绝美沙滩</span>
     </div>
-    <div class="drive-banner" style="background: linear-gradient(90deg, var(--green-light), #ecfdf5);">
-      <span class="drive-icon">🥾</span>
-      <span>今日徒步总计 <strong>约 3-5 小时</strong>（Le Castellet 1-2h + Bandol 海滨 2-3h）· 很休闲</span>
-    </div>
+  </div>
+</section>
 
-    <div class="spot-card">
-      <div class="spot-header">
-        <div class="spot-number">4</div>
-        <div class="spot-name">
-          <h3>🏰 Le Castellet 中世纪村庄</h3>
-          <div class="spot-location">山顶古村 · 俯瞰 Bandol 葡萄园</div>
-        </div>
-      </div>
-      <p class="spot-desc">建在山顶的中世纪古村，石头窄巷、手工艺品小店、从城墙俯瞰连绵的葡萄园和大海。《沉默的羔羊》那种普罗旺斯情调就在这里。下山后去 Bandol 海边走走 🏘️</p>
-      <div class="spot-info">
-        <span class="pill pill-time">⏱️ 1-2小时</span>
-        <span class="pill pill-difficulty">🟢 轻松</span>
-        <span class="pill pill-drive">🚗 45min</span>
-      </div>
-      <div class="parking-box">
-        <span class="parking-icon">🅿️</span>
-        <div class="parking-details">
-          <div class="parking-name">村口停车场</div>
-          <div class="parking-note">D26 路旁，免费</div>
-          <a class="parking-link" href="https://www.google.com/maps/search/?api=1&query=43.2026,5.7814" target="_blank">📍 Google Maps 导航 →</a>
-        </div>
-      </div>
-      <div class="highlights">
-        <span class="highlight-tag">🏰 中世纪石巷</span>
-        <span class="highlight-tag">🍇 葡萄园全景</span>
-        <span class="highlight-tag">🎨 手工艺品店</span>
-      </div>
-    </div>
+<hr class="section-divider">
 
-    <div class="spot-card">
-      <div class="spot-header">
-        <div class="spot-number">5</div>
-        <div class="spot-name">
-          <h3>⛵ Bandol 海滨 + 品酒</h3>
-          <div class="spot-location">法南最佳红酒产区之一</div>
-        </div>
-      </div>
-      <p class="spot-desc">Le Castellet 下山就是 Bandol，法国最有名的 rosé 和红酒产区之一。在海边散步、找家酒庄品尝 Bandol AOC，或者沿海岸步道走走。节奏慢慢的就对了 🌅</p>
-      <div class="spot-info">
-        <span class="pill pill-time">⏱️ 2-3小时</span>
-        <span class="pill pill-difficulty">🟢 散步+品酒</span>
-        <span class="pill pill-drive">🚗 Le Castellet 开车 15min</span>
-      </div>
-      <div class="parking-box">
-        <span class="parking-icon">🅿️</span>
-        <div class="parking-details">
-          <div class="parking-name">Port de Bandol 附近停车场</div>
-          <a class="parking-link" href="https://www.google.com/maps/search/?api=1&query=43.1350,5.7530" target="_blank">📍 Google Maps 导航 →</a>
-        </div>
-      </div>
-      <div class="highlights">
-        <span class="highlight-tag">🍷 Bandol AOC 品酒</span>
-        <span class="highlight-tag">🌊 海滨漫步</span>
-        <span class="highlight-tag">☀️ 法南小镇</span>
-      </div>
+<!-- ========== DAY 3: WEDNESDAY - REST ========== -->
+<section class="day-section day-3" id="day3">
+  <div class="day-header">
+    <div class="day-badge">周三<br>3/18</div>
+    <div class="day-title">
+      <h2>😴 休息日</h2>
+      <div class="day-subtitle">不开车 · 不徒步 · 不安排</div>
     </div>
+  </div>
+  <div class="rest-card">
+    <div class="rest-emoji">☕ 📖 🛌</div>
+    <h3>今天什么都不安排</h3>
+    <p>睡到自然醒，楼下找家咖啡店坐着发呆。<br>或者去马赛老港 Vieux-Port 逛逛鱼市场，<br>在 Cours Julien 涂鸦街区找家小馆子吃午饭。<br>度假嘛，就是要有什么都不干的一天 ✨</p>
+  </div>
+</section>
 
-    <div class="spot-card">
-      <div class="spot-header">
-        <div class="spot-number">6</div>
-        <div class="spot-name">
-          <h3>🏝️ Île de Porquerolles</h3>
-          <div class="spot-location">无车小岛 · 渡轮 20min · Hyères</div>
-        </div>
-        <span class="spot-optional">替代方案</span>
-      </div>
-      <p class="spot-desc">如果更想看自然风光：开车到 Hyères 的 La Tour Fondue 码头坐渡轮（20min），上岛就是天堂——没有汽车，只有碧蓝海滩和松树林。租个自行车环岛，或者找个沙滩躺一天 🏝️</p>
-      <div class="spot-info">
-        <span class="pill pill-time">⏱️ 大半天</span>
-        <span class="pill pill-difficulty">🟢 轻松</span>
-        <span class="pill pill-drive">🚗 马赛 1h + 🚢 渡轮 20min</span>
-      </div>
-      <div class="parking-box">
-        <span class="parking-icon">🅿️</span>
-        <div class="parking-details">
-          <div class="parking-name">P+R Arromanches（免费）或 La Tour Fondue 码头停车场</div>
-          <div class="parking-note">免费停远处 P+R + 坐公交到码头更省心</div>
-          <a class="parking-link" href="https://www.google.com/maps/search/?api=1&query=43.0310,6.1560" target="_blank">📍 La Tour Fondue 码头 →</a>
-        </div>
-      </div>
-      <div class="highlights">
-        <span class="highlight-tag">🏝️ 无车天堂</span>
-        <span class="highlight-tag">🚲 租自行车环岛</span>
-        <span class="highlight-tag">🏖️ 绝美沙滩</span>
-        <span class="highlight-tag">🌿 国家公园</span>
+<hr class="section-divider">
+
+<!-- ========== DAY 4: THURSDAY ========== -->
+<section class="day-section day-4" id="day4">
+  <div class="day-header">
+    <div class="day-badge">周四<br>3/19</div>
+    <div class="day-title">
+      <h2>🔴 Estérel 红色火山岩</h2>
+      <div class="day-subtitle">Cap Dramont · Saint-Raphaël · 今天开车最远</div>
+    </div>
+  </div>
+
+  <div class="day-route">
+    <div class="day-route-title">🗺️ 今日路线</div>
+    <div class="day-route-path">
+      🏠 马赛 <span class="r-arrow">→</span> <span class="r-time">1h45 (A8高速)</span> <span class="r-arrow">→</span>
+      Cap Dramont 红岩环线 <span class="r-arrow">→</span> <span class="r-time">5min</span> <span class="r-arrow">→</span>
+      Saint-Raphaël 午餐 <span class="r-arrow">→</span> <span class="r-time">15min (可选)</span> <span class="r-arrow">→</span>
+      Pic du Cap Roux <span class="r-arrow">→</span> <span class="r-time">1h45</span> <span class="r-arrow">→</span>
+      🏠 马赛
+    </div>
+    <div class="day-route-summary">
+      <span class="day-route-pill pill-car">🚗 开车总计 ~3.5-4h</span>
+      <span class="day-route-pill pill-hike">🥾 徒步总计 2-6h</span>
+      <span class="day-route-pill" style="background:#fff1f2;color:#e11d48;">⚠️ 最远的一天</span>
+    </div>
+  </div>
+
+  <div class="spot-card">
+    <div class="spot-header">
+      <div class="spot-number">7</div>
+      <div class="spot-name"><h3>🌋 Cap Dramont 海岸环线</h3><div class="spot-location">Saint-Raphaël · Estérel 红岩区</div></div>
+    </div>
+    <p class="spot-desc">Estérel 精华浓缩版！红色火山岩像燃烧一样，能看到金色小岛 Île d'Or 和小港口 Port du Poussaï。评分 4.6/5 🏝️</p>
+    <div class="spot-info">
+      <span class="pill pill-drive">🚗 马赛→这里 1h45</span>
+      <span class="pill pill-time">🥾 1h50</span>
+      <span class="pill pill-distance">📏 4.54km 环线</span>
+      <span class="pill pill-elevation">📐 +174m</span>
+      <span class="pill pill-difficulty">🟢 Easy</span>
+    </div>
+    <div class="route-box">
+      <div class="route-label">🥾 环线路线</div>
+      <div class="route-steps">停车场<span class="route-arrow">→</span>悬崖<span class="route-arrow">→</span>观景台 Agay Bay<span class="route-arrow">→</span>Sémaphore<span class="route-arrow">→</span>Île d'Or<span class="route-arrow">→</span>Port du Poussaï<span class="route-arrow">→</span>回</div>
+    </div>
+    <div class="parking-box">
+      <span class="parking-icon">🅿️</span>
+      <div class="parking-details">
+        <div class="parking-name">Camp Long Beach Car Park</div>
+        <a class="parking-link" href="https://www.google.com/maps/search/?api=1&query=43.419347,6.858206" target="_blank">📍 导航 →</a>
       </div>
     </div>
-  </section>
+    <div class="highlights">
+      <span class="highlight-tag">🌋 红色火山岩</span>
+      <span class="highlight-tag">🏝️ Île d'Or</span>
+      <span class="highlight-tag">⭐ 4.6/5</span>
+    </div>
+  </div>
 
-  <hr class="section-divider">
+  <div class="spot-card">
+    <div class="spot-header">
+      <div class="spot-number">8</div>
+      <div class="spot-name"><h3>🏘️ Saint-Raphaël 老城午餐</h3><div class="spot-location">海边吃饭歇脚</div></div>
+      <span class="spot-optional">顺路</span>
+    </div>
+    <p class="spot-desc">Cap Dramont 旁边就是 Saint-Raphaël，安静漂亮的海边小城。吃个午餐再决定下午要不要去爬 Cap Roux。</p>
+    <div class="spot-info">
+      <span class="pill pill-drive">🚗 Cap Dramont→这里 5min</span>
+      <span class="pill pill-time">🥾 1h 散步</span>
+    </div>
+  </div>
 
-  <!-- DAY 3: WEDNESDAY - REST -->
-  <section class="day-section day-3" id="day3">
-    <div class="day-header">
-      <div class="day-badge">周三<br>3/18</div>
-      <div class="day-title">
-        <h2>😴 休息日</h2>
-        <div class="day-subtitle">充电 · 随心所欲</div>
+  <div class="spot-card">
+    <div class="spot-header">
+      <div class="spot-number">9</div>
+      <div class="spot-name"><h3>🏔️ Pic du Cap Roux（452m）</h3><div class="spot-location">Estérel 最佳观景台</div></div>
+      <span class="spot-optional">可选加码</span>
+    </div>
+    <p class="spot-desc">体力好的话强烈推荐！452m 山顶 360° 看红色山脉和地中海。下午去可以看日落 🌅 但加上这个今天就很充实了。</p>
+    <div class="spot-info">
+      <span class="pill pill-drive">🚗 Saint-Raphaël→这里 15min</span>
+      <span class="pill pill-time">🥾 4h 往返</span>
+      <span class="pill pill-elevation">📐 +400m</span>
+      <span class="pill pill-difficulty">🟡 中等</span>
+    </div>
+    <div class="parking-box">
+      <span class="parking-icon">🅿️</span>
+      <div class="parking-details">
+        <div class="parking-name">Sainte-Baume Car Park（6:00-21:00）</div>
+        <a class="parking-link" href="https://www.google.com/maps/search/?api=1&query=43.4430,6.8950" target="_blank">📍 导航 →</a>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="rest-card">
-      <div class="rest-emoji">☕ 📖 🛌</div>
-      <h3>今天什么都不安排</h3>
-      <p>
-        睡到自然醒，楼下找家咖啡店坐着发呆。<br>
-        或者去马赛老港 Vieux-Port 逛逛鱼市场，<br>
-        在 Cours Julien 涂鸦街区找家小馆子吃午饭。<br>
-        度假嘛，就是要有什么都不干的一天 ✨
-      </p>
+<hr class="section-divider">
+
+<!-- ========== DAY 5: FRIDAY ========== -->
+<section class="day-section day-5" id="day5">
+  <div class="day-header">
+    <div class="day-badge">周五<br>3/20</div>
+    <div class="day-title">
+      <h2>🌴 戛纳 Cannes</h2>
+      <div class="day-subtitle">城市+海滨 · 最后一个活动日</div>
     </div>
-  </section>
+  </div>
 
-  <hr class="section-divider">
-
-  <!-- DAY 4: THURSDAY -->
-  <section class="day-section day-4" id="day4">
-    <div class="day-header">
-      <div class="day-badge">周四<br>3/19</div>
-      <div class="day-title">
-        <h2>🔴 Estérel 红色火山岩</h2>
-        <div class="day-subtitle">Cap Dramont · 红岩入海 · 今天开车最远</div>
-      </div>
+  <div class="day-route">
+    <div class="day-route-title">🗺️ 今日路线</div>
+    <div class="day-route-path">
+      🏠 马赛 <span class="r-arrow">→</span> <span class="r-time">1h50 (A8高速)</span> <span class="r-arrow">→</span>
+      Mandelieu 海滨步道 <span class="r-arrow">→</span> <span class="r-time">10min</span> <span class="r-arrow">→</span>
+      Théoule-sur-Mer <span class="r-arrow">→</span> <span class="r-time">20min</span> <span class="r-arrow">→</span>
+      戛纳老城 + La Croisette <span class="r-arrow">→</span> <span class="r-time">2h</span> <span class="r-arrow">→</span>
+      🏠 马赛
     </div>
-
-    <div class="drive-banner">
-      <span class="drive-icon">🚗</span>
-      <span>马赛 → Cap Dramont <strong>单程 1 小时 45 分</strong>（高速 A8，往返 ~3.5h）· ⚠️ 今天开车最多</span>
+    <div class="day-route-summary">
+      <span class="day-route-pill pill-car">🚗 开车总计 ~4h</span>
+      <span class="day-route-pill pill-hike">🥾 徒步总计 4-6h</span>
+      <span class="day-route-pill pill-relax">🎬 城市+自然</span>
     </div>
-    <div class="drive-banner" style="background: linear-gradient(90deg, var(--green-light), #ecfdf5);">
-      <span class="drive-icon">🥾</span>
-      <span>今日徒步总计 <strong>约 2-6 小时</strong>（Cap Dramont 2h · 加 Cap Roux +4h 可选）</span>
-    </div>
+  </div>
 
-    <div class="spot-card">
-      <div class="spot-header">
-        <div class="spot-number">7</div>
-        <div class="spot-name">
-          <h3>🌋 Cap Dramont 海岸环线</h3>
-          <div class="spot-location">Saint-Raphaël · Estérel 红岩区</div>
-        </div>
-      </div>
-      <p class="spot-desc">Estérel 山脉的精华浓缩版！红色火山岩在阳光下像燃烧一样，海水蓝得不真实。环线轻松好走，能看到著名的金色小岛 Île d'Or，还有超可爱的小港口 Port du Poussaï 🏝️</p>
-      <div class="spot-info">
-        <span class="pill pill-time">⏱️ 1h50</span>
-        <span class="pill pill-distance">📏 4.54km 环线</span>
-        <span class="pill pill-elevation">📐 爬升174m</span>
-        <span class="pill pill-difficulty">🟢 Easy</span>
-      </div>
-      <div class="route-box">
-        <div class="route-label">🥾 环线路线</div>
-        <div class="route-steps">
-          停车场<span class="route-arrow">→</span>悬崖东南<span class="route-arrow">→</span>观景台（Agay Bay）<span class="route-arrow">→</span>Sémaphore<span class="route-arrow">→</span>Île d'Or 观景<span class="route-arrow">→</span>Port du Poussaï<span class="route-arrow">→</span>回停车场
-        </div>
-      </div>
-      <div class="parking-box">
-        <span class="parking-icon">🅿️</span>
-        <div class="parking-details">
-          <div class="parking-name">Camp Long Beach Car Park</div>
-          <div class="parking-note">N 43.419347° / E 6.858206°</div>
-          <a class="parking-link" href="https://www.google.com/maps/search/?api=1&query=43.419347,6.858206" target="_blank">📍 Google Maps 导航 →</a>
-        </div>
-      </div>
-      <div class="highlights">
-        <span class="highlight-tag">🌋 红色火山岩</span>
-        <span class="highlight-tag">🏝️ Île d'Or</span>
-        <span class="highlight-tag">⛵ 小港口</span>
-        <span class="highlight-tag">⭐ 4.6/5</span>
+  <div class="spot-card">
+    <div class="spot-header">
+      <div class="spot-number">10</div>
+      <div class="spot-name"><h3>🚶 Mandelieu-La Napoule 海滨步道</h3><div class="spot-location">Port de La Rague → Port Mandelieu</div></div>
+    </div>
+    <p class="spot-desc">从马赛出发先到这里热身。一个港口走到另一个港口，沿途两座城堡、三个沙滩、一个岩石隧道 🌊</p>
+    <div class="spot-info">
+      <span class="pill pill-drive">🚗 马赛→这里 1h50</span>
+      <span class="pill pill-time">🥾 1-2h</span>
+      <span class="pill pill-difficulty">🟢 轻松</span>
+    </div>
+    <div class="parking-box">
+      <span class="parking-icon">🅿️</span>
+      <div class="parking-details">
+        <div class="parking-name">Port de La Rague 停车场</div>
+        <a class="parking-link" href="https://www.google.com/maps/search/?api=1&query=43.5200,6.9380" target="_blank">📍 导航 →</a>
       </div>
     </div>
+    <div class="highlights">
+      <span class="highlight-tag">🏰 两座城堡</span>
+      <span class="highlight-tag">🏖️ 三个沙滩</span>
+      <span class="highlight-tag">🕳️ 岩石隧道</span>
+    </div>
+  </div>
 
-    <div class="spot-card">
-      <div class="spot-header">
-        <div class="spot-number">8</div>
-        <div class="spot-name">
-          <h3>🏔️ Pic du Cap Roux（452m）</h3>
-          <div class="spot-location">Estérel 最佳观景台</div>
-        </div>
-        <span class="spot-optional">可选加码</span>
-      </div>
-      <p class="spot-desc">如果还有体力，这是 Estérel 的王牌景观！452米山顶360°看红色山脉和地中海。下午去可以看日落，红岩被夕阳染成金色 🌅 但加上这个今天会很充实。</p>
-      <div class="spot-info">
-        <span class="pill pill-time">⏱️ 4h 往返</span>
-        <span class="pill pill-elevation">📐 爬升400m</span>
-        <span class="pill pill-difficulty">🟡 中等</span>
-      </div>
-      <div class="parking-box">
-        <span class="parking-icon">🅿️</span>
-        <div class="parking-details">
-          <div class="parking-name">Sainte-Baume Car Park</div>
-          <div class="parking-note">开放 6:00-21:00 · 离 Cap Dramont 开车 15min</div>
-          <a class="parking-link" href="https://www.google.com/maps/search/?api=1&query=43.4430,6.8950" target="_blank">📍 Google Maps 导航 →</a>
-        </div>
+  <div class="spot-card">
+    <div class="spot-header">
+      <div class="spot-number">11</div>
+      <div class="spot-name"><h3>🔴 Théoule-sur-Mer</h3><div class="spot-location">红岩入海小镇</div></div>
+      <span class="spot-optional">顺路</span>
+    </div>
+    <p class="spot-desc">Mandelieu 去戛纳路上经过。Estérel 红色岩石直接扎进碧蓝大海，喝杯咖啡拍拍照 ☕</p>
+    <div class="spot-info">
+      <span class="pill pill-drive">🚗 Mandelieu→这里 10min</span>
+      <span class="pill pill-time">🥾 30min-1h</span>
+    </div>
+    <div class="parking-box">
+      <span class="parking-icon">🅿️</span>
+      <div class="parking-details">
+        <div class="parking-name">Esplanade du Général Charles de Gaulle</div>
+        <a class="parking-link" href="https://www.google.com/maps/search/?api=1&query=43.5074,6.9401" target="_blank">📍 导航 →</a>
       </div>
     </div>
+  </div>
 
-    <div class="spot-card">
-      <div class="spot-header">
-        <div class="spot-number">9</div>
-        <div class="spot-name">
-          <h3>🏘️ Saint-Raphaël 老城</h3>
-          <div class="spot-location">吃个午饭 · 海边走走</div>
-        </div>
-        <span class="spot-optional">顺路</span>
-      </div>
-      <p class="spot-desc">Cap Dramont 旁边就是 Saint-Raphaël，在老城吃个午餐、沿海边走走。比戛纳安静很多但一样漂亮。适合徒步完了歇脚。</p>
-      <div class="spot-info">
-        <span class="pill pill-time">⏱️ 1-2小时</span>
-        <span class="pill pill-difficulty">🟢 散步</span>
+  <div class="spot-card">
+    <div class="spot-header">
+      <div class="spot-number">12</div>
+      <div class="spot-name"><h3>🏘️ 戛纳老城 Le Suquet + La Croisette</h3><div class="spot-location">电影节圣地</div></div>
+    </div>
+    <p class="spot-desc">窄巷彩色房子爬到山顶教堂，俯瞰整个戛纳湾。下来逛 La Croisette 海滨大道、看看 Palais des Festivals 红毯。傍晚光线最美 🌇</p>
+    <div class="spot-info">
+      <span class="pill pill-drive">🚗 Théoule→这里 20min</span>
+      <span class="pill pill-time">🥾 2-3h</span>
+      <span class="pill pill-difficulty">🟢 轻松（有台阶）</span>
+    </div>
+    <div class="parking-box">
+      <span class="parking-icon">🅿️</span>
+      <div class="parking-details">
+        <div class="parking-name">Parking Forville（老城旁）</div>
+        <a class="parking-link" href="https://www.google.com/maps/search/?api=1&query=43.5513,7.0128" target="_blank">📍 导航 →</a>
       </div>
     </div>
-  </section>
+    <div class="highlights">
+      <span class="highlight-tag">🏘️ 彩色老街</span>
+      <span class="highlight-tag">🎬 电影节红毯</span>
+      <span class="highlight-tag">🌇 戛纳湾全景</span>
+    </div>
+  </div>
+</section>
 
-  <hr class="section-divider">
+<hr class="section-divider">
 
-  <!-- DAY 5: FRIDAY -->
-  <section class="day-section day-5" id="day5">
-    <div class="day-header">
-      <div class="day-badge">周五<br>3/20</div>
-      <div class="day-title">
-        <h2>🌴 戛纳 Cannes</h2>
-        <div class="day-subtitle">城市+自然 · 最后一个活动日</div>
+<!-- ========== DAY 6: SATURDAY ========== -->
+<section class="day-section day-6" id="day6">
+  <div class="day-header">
+    <div class="day-badge">周六<br>3/21</div>
+    <div class="day-title">
+      <h2>🏛️ 最后一天 · 博物馆</h2>
+      <div class="day-subtitle">10 点退房 → MuCEM → 出发</div>
+    </div>
+  </div>
+
+  <div class="day-route">
+    <div class="day-route-title">🗺️ 今日路线</div>
+    <div class="day-route-path">
+      🏠 退房 <span class="r-arrow">→</span> <span class="r-time">市内</span> <span class="r-arrow">→</span>
+      MuCEM 博物馆 <span class="r-arrow">→</span> 出发 ✈️
+    </div>
+    <div class="day-route-summary">
+      <span class="day-route-pill pill-car">🚗 市内</span>
+      <span class="day-route-pill pill-hike">🥾 2-3h 室内</span>
+    </div>
+  </div>
+
+  <div class="spot-card">
+    <div class="spot-header">
+      <div class="spot-number">🏛️</div>
+      <div class="spot-name"><h3>🏛️ MuCEM 地中海文明博物馆</h3><div class="spot-location">Musée des Civilisations de l'Europe et de la Méditerranée</div></div>
+    </div>
+    <p class="spot-desc">马赛地标！黑色镂空外墙超上镜，天台看老港。旁边连着 Fort Saint-Jean 中世纪要塞。10:00-18:00 开放 ✨</p>
+    <div class="spot-info">
+      <span class="pill pill-time">🥾 2-3h</span>
+      <span class="pill pill-difficulty">🟢 室内</span>
+    </div>
+    <div class="parking-box">
+      <span class="parking-icon">🅿️</span>
+      <div class="parking-details">
+        <div class="parking-name">Parking Fort Saint-Jean 或 Parking Vieux-Port</div>
+        <div class="parking-note">10:00-18:00 · 周二闭馆</div>
+        <a class="parking-link" href="https://www.google.com/maps/search/?api=1&query=43.2965,5.3608" target="_blank">📍 导航 →</a>
       </div>
     </div>
-
-    <div class="drive-banner">
-      <span class="drive-icon">🚗</span>
-      <span>马赛 → 戛纳 <strong>单程 2 小时</strong>（高速 A8，往返 ~4h）· 建议早出，晚上慢慢开回来</span>
+    <div class="highlights">
+      <span class="highlight-tag">🏛️ 地中海文明</span>
+      <span class="highlight-tag">📸 镂空建筑</span>
+      <span class="highlight-tag">🏰 Fort Saint-Jean</span>
+      <span class="highlight-tag">🌅 天台看老港</span>
     </div>
-    <div class="drive-banner" style="background: linear-gradient(90deg, var(--green-light), #ecfdf5);">
-      <span class="drive-icon">🥾</span>
-      <span>今日徒步总计 <strong>约 4-6 小时</strong>（Mandelieu 1-2h + 戛纳 2-3h + Théoule 顺路）</span>
-    </div>
+  </div>
+</section>
 
-    <div class="spot-card">
-      <div class="spot-header">
-        <div class="spot-number">10</div>
-        <div class="spot-name">
-          <h3>🚶 Mandelieu-La Napoule 海滨步道</h3>
-          <div class="spot-location">Port de La Rague → Port Mandelieu · 戛纳西边</div>
-        </div>
-      </div>
-      <p class="spot-desc">先到戛纳西边这个海滨步道热热身。从一个港口走到另一个港口，沿途两座城堡、三个沙滩、一个超酷岩石隧道。完全 relax 的节奏 🌊</p>
-      <div class="spot-info">
-        <span class="pill pill-time">⏱️ 1-2小时</span>
-        <span class="pill pill-difficulty">🟢 轻松</span>
-        <span class="pill pill-drive">🚗 戛纳西 20min</span>
-      </div>
-      <div class="parking-box">
-        <span class="parking-icon">🅿️</span>
-        <div class="parking-details">
-          <div class="parking-name">Port de La Rague 停车场</div>
-          <a class="parking-link" href="https://www.google.com/maps/search/?api=1&query=43.5200,6.9380" target="_blank">📍 Google Maps 导航 →</a>
-        </div>
-      </div>
-      <div class="highlights">
-        <span class="highlight-tag">🏰 两座城堡</span>
-        <span class="highlight-tag">🏖️ 三个沙滩</span>
-        <span class="highlight-tag">🕳️ 岩石隧道</span>
-      </div>
-    </div>
+<hr class="section-divider">
 
-    <div class="spot-card">
-      <div class="spot-header">
-        <div class="spot-number">11</div>
-        <div class="spot-name">
-          <h3>🏘️ 戛纳老城 Le Suquet + 城市</h3>
-          <div class="spot-location">Cannes · 电影节圣地</div>
-        </div>
-      </div>
-      <p class="spot-desc">戛纳最有味道的地方！窄巷子、彩色房子、爬到山顶教堂俯瞰整个戛纳湾。顺便看看 Palais des Festivals 红毯、La Croisette 海滨大道。傍晚的光线最美 🌇</p>
-      <div class="spot-info">
-        <span class="pill pill-time">⏱️ 2-3小时</span>
-        <span class="pill pill-difficulty">🟢 轻松（有台阶）</span>
-      </div>
-      <div class="parking-box">
-        <span class="parking-icon">🅿️</span>
-        <div class="parking-details">
-          <div class="parking-name">Parking Forville（老城旁）或 Parking Laubeuf（海边）</div>
-          <a class="parking-link" href="https://www.google.com/maps/search/?api=1&query=43.5513,7.0128" target="_blank">📍 Parking Forville →</a>
-        </div>
-      </div>
-      <div class="highlights">
-        <span class="highlight-tag">🏘️ 彩色老街</span>
-        <span class="highlight-tag">⛪ 山顶教堂</span>
-        <span class="highlight-tag">🎬 电影节红毯</span>
-        <span class="highlight-tag">🌇 戛纳湾全景</span>
-      </div>
-    </div>
-
-    <div class="spot-card">
-      <div class="spot-header">
-        <div class="spot-number">12</div>
-        <div class="spot-name">
-          <h3>🔴 Théoule-sur-Mer</h3>
-          <div class="spot-location">红岩入海的小镇 · 戛纳和 Mandelieu 之间</div>
-        </div>
-        <span class="spot-optional">顺路</span>
-      </div>
-      <p class="spot-desc">如果还有时间，这个小镇就在 Mandelieu 和戛纳之间。Estérel 红色岩石直接扎进碧蓝大海的画面，只有这里才有。找家咖啡店坐着看就很好 ☕</p>
-      <div class="spot-info">
-        <span class="pill pill-time">⏱️ 30min-1h</span>
-        <span class="pill pill-difficulty">🟢 散步</span>
-      </div>
-      <div class="parking-box">
-        <span class="parking-icon">🅿️</span>
-        <div class="parking-details">
-          <div class="parking-name">Esplanade du Général Charles de Gaulle</div>
-          <a class="parking-link" href="https://www.google.com/maps/search/?api=1&query=43.5074,6.9401" target="_blank">📍 Google Maps 导航 →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="section-divider">
-
-  <!-- DAY 6: SATURDAY -->
-  <section class="day-section day-6" id="day6">
-    <div class="day-header">
-      <div class="day-badge">周六<br>3/21</div>
-      <div class="day-title">
-        <h2>🏛️ 最后一天 · 博物馆</h2>
-        <div class="day-subtitle">10点退房 → MuCEM → 出发</div>
-      </div>
-    </div>
-
-    <div class="spot-card">
-      <div class="spot-header">
-        <div class="spot-number">🏛️</div>
-        <div class="spot-name">
-          <h3>🏛️ MuCEM 欧洲和地中海文明博物馆</h3>
-          <div class="spot-location">Musée des Civilisations de l'Europe et de la Méditerranée</div>
-        </div>
-      </div>
-      <p class="spot-desc">马赛地标建筑！黑色镂空外墙超级上镜。馆内展览关于地中海文明史，天台可以看整个老港。旁边连着 Fort Saint-Jean 中世纪要塞，一起逛刚好。开放时间 10:00-18:00 ✨</p>
-      <div class="spot-info">
-        <span class="pill pill-time">⏱️ 2-3小时</span>
-        <span class="pill pill-difficulty">🟢 室内</span>
-        <span class="pill pill-drive">🚶 马赛老港旁</span>
-      </div>
-      <div class="parking-box">
-        <span class="parking-icon">🅿️</span>
-        <div class="parking-details">
-          <div class="parking-name">Parking Fort Saint-Jean 或 Parking Vieux-Port</div>
-          <div class="parking-note">开放 10:00-18:00 · 周二闭馆</div>
-          <a class="parking-link" href="https://www.google.com/maps/search/?api=1&query=43.2965,5.3608" target="_blank">📍 Google Maps 导航 →</a>
-        </div>
-      </div>
-      <div class="highlights">
-        <span class="highlight-tag">🏛️ 地中海文明</span>
-        <span class="highlight-tag">📸 镂空建筑</span>
-        <span class="highlight-tag">🏰 Fort Saint-Jean</span>
-        <span class="highlight-tag">🌅 天台看老港</span>
-      </div>
-    </div>
-  </section>
-
-  <hr class="section-divider">
-
-  <!-- TIPS -->
-  <section class="tips-section" id="tips">
-    <div class="tips-header">
-      <h2>💡 实用贴士</h2>
-      <p>出发前看一眼，路上少踩坑</p>
-    </div>
-    <div class="tips-grid">
-      <div class="tip-card">
-        <div class="tip-icon">☀️</div>
-        <h4>防晒第一</h4>
-        <p>地中海紫外线猛！SPF 50+ 防晒霜、帽子、墨镜必备。悬崖上没遮阴。</p>
-      </div>
-      <div class="tip-card">
-        <div class="tip-icon">👟</div>
-        <h4>穿对鞋</h4>
-        <p>岩石路面多，穿有抓地力的徒步鞋或运动鞋。别穿拖鞋爬石灰岩！</p>
-      </div>
-      <div class="tip-card">
-        <div class="tip-icon">💧</div>
-        <h4>带够水</h4>
-        <p>每人每次至少 1.5L。Calanques 深处和 Cap Roux 沿途无补给。</p>
-      </div>
-      <div class="tip-card">
-        <div class="tip-icon">🅿️</div>
-        <h4>三月停车不慌</h4>
-        <p>三月是淡季，停车场不会挤！不用赶早，中午到也有位。夏天才需要抢车位。</p>
-      </div>
-      <div class="tip-card">
-        <div class="tip-icon">🏊</div>
-        <h4>带泳衣</h4>
-        <p>很多峡湾和小海湾可以游泳！水清但可能有点凉，带条速干毛巾。</p>
-      </div>
-      <div class="tip-card">
-        <div class="tip-icon">⛽</div>
-        <h4>高速过路费</h4>
-        <p>A8 高速有 péage（收费站），准备好信用卡或零钱。马赛→戛纳单程约 €15-20。</p>
-      </div>
-    </div>
-  </section>
+<!-- TIPS -->
+<section class="tips-section" id="tips">
+  <div class="tips-header">
+    <h2>💡 实用贴士</h2>
+    <p>出发前看一眼，路上少踩坑</p>
+  </div>
+  <div class="tips-grid">
+    <div class="tip-card"><div class="tip-icon">☀️</div><h4>防晒第一</h4><p>地中海紫外线猛！SPF 50+、帽子、墨镜必备。</p></div>
+    <div class="tip-card"><div class="tip-icon">👟</div><h4>穿对鞋</h4><p>岩石路面多，穿有抓地力的鞋。别穿拖鞋爬石灰岩！</p></div>
+    <div class="tip-card"><div class="tip-icon">💧</div><h4>带够水</h4><p>每人每次至少 1.5L。峡湾深处无补给。</p></div>
+    <div class="tip-card"><div class="tip-icon">🅿️</div><h4>三月停车不慌</h4><p>淡季停车场不挤，不用赶早，中午到也有位。</p></div>
+    <div class="tip-card"><div class="tip-icon">🏊</div><h4>带泳衣</h4><p>很多小海湾可游泳！水清但微凉，带速干毛巾。</p></div>
+    <div class="tip-card"><div class="tip-icon">⛽</div><h4>高速过路费</h4><p>A8 有 péage 收费站，备好信用卡。马赛→戛纳单程约 €15-20。</p></div>
+  </div>
+</section>
 
 </div>
 
 <footer class="footer">
   <div class="footer-emoji">🌊 🇫🇷 ☀️</div>
   <p>Bon voyage! 祝度假愉快 🚗✨</p>
-  <p style="margin-top:0.5rem; opacity:0.5;">Made with ❤️ by 沙沙 for the Côte d'Azur adventure</p>
+  <p style="margin-top:0.4rem; opacity:0.5;">Made with ❤️ by 沙沙</p>
 </footer>
 
 </body>
